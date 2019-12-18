@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+<link rel = "stylesheet"
+   type = "text/css"
+   href = "/Users/williamharris/Documents/CaSTL_2019-2020/Projects/Stark_Overtones/css/styles.css" />
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+<!-------------------------------------------------------------------------------------------------------------->
+<div id="container">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+      Overtones In BPE
+    </title>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true}
+      });
+    </script>
+
+    <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  </head>
+<!-------------------------------------------------------------------------------------------------------------->
+
+<body>
+      
+    <nav class="navbar">
+      
+      <h1 class="title">  <b>Overtones in BPE</b></h1>
+
+      <div class="dropdown">
+        <a class="dropdown-toggle"  role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Navigate
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <div class = "centered">
+            <div class = "row">
+            <a class="nav" href="#Single-Peak">-Home-</a>
+            <a class="nav" href="#Single-Peak">-About-</a>
+            <a class="nav" href="#Single-Peak">-Home-</a>
+            </div>
+            </div>
+            <hr class="style2">
+          <ol>
+            <li><a class="nav" href="#Calculating-Overtones">Calculating Overtones</a></li>
+            <li><a class="nav" href="#External-Potential">An External Potential</a></li>
+            <li><a class="nav" href="#Corilation">Calculating Overtones</a></li>
+          </ol> 
+          
+        </div>
+      </div>
+      
+   </nav>
+   
+   <hr class="style4">
+   <hr class="style4">
+<!-------------------------------------------------------------------------------------------------------------->
+
+  <br>
+  <p><i>We have seen numerous instances in BPE overtones / combination bands in both SERS and STM mesurments. Two main aspects of these mesurements are puziling. First, the relitive intenity between the fundemental and overtones is not consistent. In some cases, the overtones appear as a copy of the fundemental reigon. </i></p> 
+    <h2 class="header" id="Calculating-Overtones"><b>1. SERS</b></h2>
+
+    <div class="row">
+    <div class="col-md-12">
+  
+      <div class="col-md-6 float-right">
+          <img src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/Stark_Overtones/Figures/BPE/traj.gif", width="100%">
+          <p class="fig_label">
+              <i>Waterfall plot showing the switch into the "bright" state and the appearance of overtones. Note that both the peaks in both the fundamental and overtone region appear to meander, indicating the presence of a strong local electric field.  </i>
+          </p>
+
+        
+
+        </div>
+
+       <p>This BPE SERS sample is recorded on multiple instances (at different laser powers) to have a bimodal fluctuation, an indication of a single molecule measurement. In this trajectory, however, the Raman response appears to switch into a new state, distinct bimodal states, that is characterized by an approximately 4 fold intensity surge and the appearance of overtones/combination bands in the 2500-3000 cm$^{-1}$ region. </p>
+
+       <p class ="tab"> The following analisis is based on the section of the trajectory when the molicule is in the "bright" state. The mean spectrum during this time is shown below. 
+       
+      </p> 
+      <br>
+
+       <div class="col-md-12 darker">
+         <div class ="row">
+          <div class="col-md-7 float-right">
+          <img src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/Stark_Overtones/Figures/BPE/60_μW_Mean_Spec.svg", width="100%">
+
+          </div>
+          <div class="col-md-5 centertf" >
+
+       
+          
+        <!-- $$
+        \begin{array}{c|c|c|c|c}
+        \textbf{Fundemental}  & \textbf{wn.} &\textbf{Overtone}  & \textbf{wn.} & \textbf{Anhar.} \\
+        \hline
+        \text{a}  & 456 & \color{blue}{\text{a+B}}  & \color{blue}{1864} & \color{blue}{-54} \\
+        \text{A}  & 1258 & \color{red}{\text{A+B}}  & \color{red}{2662} & \color{red}{-50} \\
+        \text{B}  & 1354 &  \color{red}{\text{B+B}}  & \color{red}{2758} & \color{red}{-50} \\
+        \text{C}  & 1450 &  \color{red}{\text{C+B}}  & \color{red}{2854} & \color{red}{-50}  \\
+        \text{D}  & 1562 & \color{red}{\text{D+B}}  & \color{red}{2962} & \color{red}{-46}  
+      
+        \end{array}
+        $$ -->
+
+
+        <table>
+            <tr>
+              <td><b>Fundemental</b></td>
+              <td><b>wn.</b></td>
+              <td><b>Overtone</b></td>
+              <td><b>wn.</b></td>
+              <td><b>Anhar.</b></td>
+            </tr>
+            <tr>
+              <td>a</td>
+              <td>456</td>
+              <td class = "blue">a+B</td>
+              <td class = "blue">1864</td>
+              <td class = "blue">-54</td>
+            </tr>
+            <tr>
+              <td>A</td>
+              <td>1258</td>
+              <td class = "red">A+B</td>
+              <td class = "red">2662</td>
+              <td class = "red">-50</td>
+            </tr>
+            <tr>
+              <td>B</td>
+              <td>1354</td>
+              <td class = "red">B+B</td>
+              <td class = "red">2758</td>
+              <td class = "red">-50</td>
+            </tr>
+            <tr>
+              <td>C</td>
+              <td>1450</td>
+              <td class = "red">C+B</td>
+              <td class = "red">2854</td>
+              <td class = "red">-50</td>
+            </tr>
+            <tr>
+              <td>D</td>
+              <td>1562</td>
+              <td class = "red">D+B</td>
+              <td class = "red">2962</td>
+              <td class = "red">-46</td>
+            </tr>
+  
+          </table>
+    
+        </div>
+      </div>
+
+       </div>
+       <br>
+
+
+
+       
+
+
+        <!-- <div class="col-md-4 float-right">
+            <img src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/Stark_Overtones/Figures/BPE/BPE60_μW_Bright.gif", width="100%">
+            <p class="fig_label">
+                <i>A cross </i>
+            </p>
+        </div> -->
+
+
+        <p> The table above show consistency with the notion of overtones, where the brightest peak, labeled $B$, acts as the driver of the harmonics. Note that in this picture, there is a negative anharmonicity, which is very rarely seen. The issue could be resolved by instead assuming that peak $A$ is the driver of overtones, though this inconsistent with the cross-correlation matrix (see below). The c-c matrix which shows that $B$, not $A$, is most correlated with overtones. Further, note that peak $A$ dose not mender, while the first overtone at 1864 cm$^{-2}$dose, and in a way that is correlated with peak $B$. The cross-correlation matrix, $ C_{i  j}$ is simply the correlation between every pixle with every other. That is,</p>
+        
+
+        $$
+         C_{i  j} = \mathrm{corr} (\text{pix}_i, \,  \text{pix}_j), \quad  \quad \mathrm{corr} (A, B)=\frac{\mathrm{E}\left[\left(A-\mu_{A}\right)\left(B-\mu_{B}\right)\right]}{\sigma_{A} \sigma_{B}}.
+        $$
+
+  
+
+
+  
+
+        <br>
+
+
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-8">
+                  <p class="pcent-big"><b>CC-Matrix Simulation</b></p>
+                  <hr>
+              
+                <div class="row">
+                <div class="col-md-3 centertf">
+                  <div class = "column" align=center>
+
+                      <p class = "pcent">Frequency Correlation: <b>-</b></p>
+                      <p class = "pcent">Intensity Correlation: <b>+</b></p>
+
+                    <img src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/CW-SRS/Notes/Resources/TwoPeakTable/TwoPeak31.gif" alt=""  width="95.5%"/>
+                    <img src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/CW-SRS/Notes/Resources/TwoPeakTable/TwoPeak31.jpg" alt=""  width="100%"/>
+                  </div>
+                </div>
+
+                <div class="col-md-3 centertf">
+                  <div class = "column" align=center>
+
+                      <p class = "pcent">Frequency Correlation: <b>0</b></p>
+                      <p class = "pcent">Intensity Correlation: <b>+</b></p>
+                      
+                    <img src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/CW-SRS/Notes/Resources/TwoPeakTable/TwoPeak32.gif" alt=""  width="95.5%"/>
+                    <img src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/CW-SRS/Notes/Resources/TwoPeakTable/TwoPeak32.jpg" alt=""  width="100%"/>
+                  </div>
+                </div>
+
+                <div class="col-md-3 centertf">
+                   <div class = "column" align=center>
+                      <p class = "pcent">Frequency Correlation: <b>+</b></p>
+                      <p class = "pcent">Intensity Correlation: <b>+</b></p>
+
+                    <img src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/CW-SRS/Notes/Resources/TwoPeakTable/TwoPeak23.gif" alt=""  width="95.5%"/>
+                    <img src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/CW-SRS/Notes/Resources/TwoPeakTable/TwoPeak33.jpg" alt=""  width="100%"/>
+                  </div>
+                </div>
+
+                <div class="col-md-3 centertf">
+                    <div class = "column" align=center>
+                       <p class = "pcent">Int. & Freq. Corr: <b>0</b></p>
+                       <p class = "pcent">Int. x Freq. Corr: <b>-</b></p>
+ 
+                     <img src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/CW-SRS/Notes/Resources/TwoPeakTable/Extra/TwoPeak11.gif" alt=""  width="95.5%"/>
+                     <img src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/CW-SRS/Notes/Resources/TwoPeakTable/Extra/TwoPeak11.jpg" alt=""  width="100%"/>
+                   </div>
+                 </div>
+                </div>
+                <p class="fig_label">
+                    <i>Above is a series of simulated two-peak spectral trajectories and corresponding cross-correlation matrices. On the left, the intensity and frequency of the two peaks are positively correlated. At center left, the frequencies are uncorrelated, while the intensities are positively correlated. At center right, the frequencies and intensities are positively correlated. The right most trajectory is generated by taking the variance in the frequency of peak-1 to zero, while setting it’s intensity to be anticorrelated with the frequency of peak two. To make these simulations more realistic, the frequency / intensity correlation is set to < 1 and a background of noise is added to each spectrum. </i>
+                </p>
+                </div>
+
+        
+
+                <div class="col-md-4 centertf">
+                  <div class="column">
+                      <p class="pcent-big"><b>CC-Matrix Experiment</b></p>
+            
+                    <img id="myImg"  src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/CW-SRS/Notes/Resources/MatrixPlot/MatrixPlot2.jpg", width="100%">
+                    <p class="fig_label">
+                        <i>A cross-correlation matrix of the bright state of trajectory clearly shows the signature of overtones in off-diagonal. The correlation patterns in the off-diagonal indicate that the overtones are both frequency and intensity correlated with the fundamentals.  This figure is generated a linear color function ranging from -0.4 to 0.4 for readability.</i>
+                    </p>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+      
+          <br>
+
+
+          <div class="col-md-6 centertf">
+              <div class="column">
+                
+        
+                <img  src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/Stark_Overtones/Figures/BPE/PC-Plot.svg", width="100%">
+                <p class="fig_label">
+                    <i></i>
+                </p>
+              </div>
+            </div>
+
+
+
+            <table>
+                <tr>
+                  <td><b>Fundemental</b></td>
+                  <td><b>wn.</b></td>
+                  <td><b>Overtone</b></td>
+                  <td><b>wn.</b></td>
+                  <td><b>Anhar.</b></td>
+                </tr>
+                <tr>
+                  <td>a</td>
+                  <td>456</td>
+                  <td class = "blue">a+B</td>
+                  <td class = "blue">1864</td>
+                  <td class = "blue">-54</td>
+                </tr>
+                <tr>
+                  <td>A</td>
+                  <td>1258</td>
+                  <td class = "red">A+B</td>
+                  <td class = "red">2662</td>
+                  <td class = "red">-50</td>
+                </tr>
+                <tr>
+                  <td>B</td>
+                  <td>1354</td>
+                  <td class = "red">B+B</td>
+                  <td class = "red">2758</td>
+                  <td class = "red">-50</td>
+                </tr>
+                <tr>
+                  <td>C</td>
+                  <td>1450</td>
+                  <td class = "red">C+B</td>
+                  <td class = "red">2854</td>
+                  <td class = "red">-50</td>
+                </tr>
+                <tr>
+                  <td>D</td>
+                  <td>1562</td>
+                  <td class = "red">D+B</td>
+                  <td class = "red">2962</td>
+                  <td class = "red">-46</td>
+                </tr>
+      
+              </table>
+
+    
+
+   
+
+
+
+
+
+    
+  <br>
+  <hr class ="style">
+  <h2 class="header" id="STM"><b>2. STM</b></h2>
+  <br>
+
+  <div class="col-md-12  justify-content-right">
+    <p>Below is a selection of STM trajectories that exhibit overtones and combination bands. Several of these also show a striking resonance progression, though we focus on just the molecular signature for now.</p>
+
+
+    <div class = "col-md-12">
+    <div class = "row">
+    <div class = "col-md-7 table" align = "center">
+
+        <img class="grid_gifs" src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/STM/Files/244/244_S1.gif", width="30%">
+  
+        <img class="grid_gifs" src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/STM/Files/247/247_S1.gif", width="30%">
+
+        <img class="grid_gifs" src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/STM/Files/248/248_S2.gif", width="30%">
+
+ 
+        <img class="grid_gifs" src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/STM/Files/248/248_S1.gif", width="30%">
+  
+          <img class="grid_gifs" src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/STM/Files/250/250_S1.gif", width="30%">
+ 
+      
+          <img class="grid_gifs" src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/STM/Files/253/253_S1.gif", width="30%">
+
+
+          <img class="grid_gifs" src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/STM/Files/254/254_S1.gif", width="30%">
+
+
+          <img class="grid_gifs" src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/STM/Files/263/263_S1.gif", width="30%">
+
+          <img class="grid_gifs" src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/STM/Files/370/370_S1.gif", width="30%">
+     
+      </div>
+
+      <div class = "col-md-5">
+      <img class ="plotReplace" src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/STM/Files/244/244_S1.gif", width="100%"> 
+      <p class="fig_label">
+          <i>The background (dashed red line) is obtained by applying a lowpass filter to the time series.</i>
+      </p>
+
+     </div>
+    </div>
+
+    <p>Below are the background subtracted mean spectra for each trajectory section shown above. The fundamental wavenumbers overtone  wavenumbers/anharmonicities are listed in the table. </p>
+
+
+
+    <div class = "col-md-12">
+    <div class = "row">
+    <div class = "col-md-6">
+        <img src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/STM/Files/spec_comp/mean_spec_comp.svg", width="100%"> 
+  
+       </div>
+
+       <div class = "col-md-6">
+       <table hight="1000">
+          <tr height="18px">
+            <td ><b>spe.</b></td>
+            <td><b>A</b></td>
+            <td><b>B</b></td>
+            <td><b>2A</b></td>
+            <td><b>A+B</b></td>
+            <td><b>2B</b></td>
+          </tr>
+          <tr class = "long">
+            <td>250 S1</td>
+            <td>1170</td>
+            <td>1533</td>
+            <td>2307, $\Delta$33</td>
+            <td>2673, $\Delta$30</td>
+            <td>3038, $\Delta$28 </td>
+          </tr>
+
+          <tr class = "long"> 
+              <td>247 S1</td>
+              <td>1163</td>
+              <td>1546</td>
+              <td>2307, $\Delta$19</td>
+              <td>2673, $\Delta$36</td>
+              <td>3038, $\Delta$54 </td>
+          </tr>
+
+          <tr  class = "long">
+              <td>248 S1</td>
+              <td>1157</td>
+              <td>1532</td>
+              <td>?</td>
+              <td>2673, $\Delta$16</td>
+              <td>3038, $\Delta$26 </td>
+          </tr>
+
+
+          <tr  class = "long">
+            <td>254 S1</td>
+            <td>1150</td>
+            <td>1546</td>
+            <td>2296, $\Delta$4</td>
+            <td>2673, $\Delta$23</td>
+            <td>3033, $\Delta$59</td>
+          </tr>
+
+
+          <tr  class = "long">
+              <td>253 S1</td>
+              <td>1157</td>
+              <td>1552</td>
+              <td>2296, $\Delta$18</td>
+              <td>2679, $\Delta$30</td>
+              <td>3083, $\Delta$24</td>
+            </tr>
+
+            <tr  class = "long">
+                <td>263 S1</td>
+                <td>1032</td>
+                <td>1602</td>
+                <td>2100, $\Delta$-36</td>
+                <td>2591, $\Delta$43</td>
+                <td>3121, $\Delta$83</td>
+              </tr>
+
+
+              <tr  class = "long">
+                  <td>370 S1</td>
+                  <td>1032</td>
+                  <td>1602</td>
+                  <td>2106, $\Delta$-42</td>
+                  <td>2597, $\Delta$37</td>
+                  <td>3110, $\Delta$94</td>
+                </tr>
+
+
+          <tr  class = "long">
+            <td>244 S1</td>
+            <td>1382</td>
+            <td>1595</td>
+            <td>2749, $\Delta$15</td>
+            <td>2945, $\Delta$32</td>
+            <td>?</td>
+          </tr>
+
+
+          <tr  class = "long">
+              <td>248 S2</td>
+              <td>1389</td>
+              <td>1608</td>
+              <td>2749, $\Delta$29</td>
+              <td>2960, $\Delta$37</td>
+              <td>?</td>
+            </tr>
+
+        </table>
+      </div>
+    </div>
+  </div>
+
+      <div class="col-md-12 float-right">
+          <img src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/STM/Files/250/250_S1_Peaks.png", width="100%">
+          <p class="fig_label">
+              <i>A cross-correlation matrix using the bright subset of trajectory A clearly shows the signature of overtones in the 2500-3000 wavenumber region. The correlation patterns  in the off-diagonal indicate that the overtones are both frequency and intensity correlated with the fundamentals.  This figure is generated a linear color function ranging from -0.4 to 0.4 for readability.  </i>
+          </p>
+      </div>
+  </div>
+
+
+ 
+  
+      $$
+      E_{n} =\underbrace{\hbar \omega \left(n+\frac{1}{2}\right)}_\text{harmonic term}  -\underbrace{\frac{15\,(a_3)^2 \hbar^2}{4 m^3 \omega^4} \left(n^2+n+11/30\right)}_\text{leading correction} \,
+      
+      \implies \, 
+      
+      \begin{cases}
+      E_{0\rightarrow 2} &= \, 2\, E_{0\rightarrow 1} - A \\ 
+      E_{0\rightarrow 3} &= \,3\, E_{0\rightarrow 1} - 3\,A \\
+      E_{0\rightarrow 4} &= \,4\, E_{0\rightarrow 1} - 6\,A \\
+                         &\vdots\\
+      E_{0\rightarrow n} &= \,n\, E_{0\rightarrow 1} - \frac{n^2-n}{2}\,A \\
+      \end{cases}
+      $$
+
+
+
+  
+
+<g transform="scale(10)">
+<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 200" width="150" height="300">
+  <defs>
+    <marker id="triangleb" viewBox="0 0 5 4"
+          refX="0" refY="2" 
+          markerUnits="strokeWidth"
+          markerWidth="5" markerHeight="5"
+          orient="auto">
+      <path d="M 0 0 L 5 2 L 0 4 z" fill="blue"/>
+    </marker>
+    <marker id="triangleg" viewBox="0 0 5 4"
+          refX="0" refY="2" 
+          markerUnits="strokeWidth"
+          markerWidth="5" markerHeight="5"
+          orient="auto">
+      <path d="M 0 0 L 5 2 L 0 4 z" fill="green"/>
+    </marker>
+    <marker id="triangler" viewBox="0 0 5 4"
+          refX="0" refY="2" 
+          markerUnits="strokeWidth"
+          markerWidth="5" markerHeight="5"
+          orient="auto">
+      <path d="M 0 0 L 5 2 L 0 4 z" fill="red"/>
+    </marker>
+  </defs>
+    <line x1="0" y1="165" x2="100" y2="165" stroke="black" stroke-width="3" />
+    <line x1="0" y1="150" x2="30" y2="150" stroke="black" stroke-width="3" />
+    <line x1="0" y1="140" x2="70" y2="140" stroke="black" stroke-width="3" />
+    <line x1="0" y1="128" x2="80" y2="128" stroke="black" stroke-width="3" />
+
+    <line x1="10" y1="163.5" x2="10" y2="15" stroke="blue" marker-end="url(#triangleb)" stroke-width="3" />
+    <line x1="25" y1="0" x2="25" y2="110" stroke="green" marker-end="url(#triangleg)" stroke-width="3" />
+    <line x1="50" y1="163.5" x2="50" y2="55" stroke="green" marker-end="url(#triangleg)" stroke-width="3" />
+    <line x1="65" y1="40" x2="65" y2="110" stroke="red" marker-end="url(#triangler)" stroke-width="3" />
+    
+ 
+
+
+  <foreignObject class="node" x="0" y="170" width="100" height="100">
+  <body xmlns="http://www.w3.org/1999/xhtml">
+  <div>$\left|g, n=0\rangle\right.$</div>
+  </body>
+  </foreignObject>
+  </svg>
+  </g>
+    
+  
+ 
+  <div class="col-md-6 float-left">
+    <div class = "row">
+      <img src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/Stark_Overtones/Figures/E-Levels1.svg", width="50%">
+   
+      <img src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/Stark_Overtones/Figures/E-Levels2.svg", width="50%">
+        
+    </div>
+    <p class="fig_label">
+          <i> </i>
+      </p>
+  </div>
+
+
+  </div>
+
+
+
+
+
+
+ 
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+  </div>
+  
+  <script>
+  // Get the modal
+  var modal = document.getElementById("myModal");
+  
+  // Get the image and insert it inside the modal - use its "alt" text as a caption
+  var img = document.getElementById("myImg");
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption");
+  img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+  
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+  
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() { 
+    modal.style.display = "none";
+  }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+<script src="/Users/williamharris/Documents/CaSTL_2019-2020/Projects/CW-SRS/Notes/Resources/js/app.js"></script>
+</div>
+<html>
